@@ -1,0 +1,750 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif
+}
+
+body{
+  background: radial-gradient(circle at top, #0a1f33 0%, #050509 55%, #000 100%);
+  color:#fff;
+  overflow-x:hidden
+}
+
+.header{
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 8%;
+  background:rgba(5,5,9,.85);
+  backdrop-filter:blur(10px);
+  z-index:1000
+}
+
+.logo{
+  font-size:24px;
+  font-weight:700
+}
+
+.logo span{color:#00d1ff}
+
+.nav a{
+  color:#fff;
+  text-decoration:none;
+  margin-left:25px;
+  position:relative
+}
+
+.nav a::after{
+  content:'';
+  width:0;
+  height:2px;
+  background:#00d1ff;
+  position:absolute;
+  bottom:-5px;
+  left:0;
+  transition:.3s
+}
+
+.nav a:hover::after{
+  width:100%
+}
+
+.menu-btn{
+  display:none;
+  font-size:28px;
+  cursor:pointer
+}
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding-top:120px;
+  text-align:center
+}
+
+.hero h1{
+  font-size:56px
+}
+
+.hero span{color:lab(91.11% -2.29 -1.91)}
+
+.hero p{
+  margin:20px 0;
+  color:lab(93.42% 1.68 0.58)
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 32px;
+  border-radius:30px;
+  background:#00d1ff;
+  color:#000;
+  font-weight:600;
+  text-decoration:none;
+  transition:.3s
+}
+
+.glow{
+  box-shadow:0 0 15px rgba(0,209,255,.6)
+}
+
+.glow:hover{
+  box-shadow:0 0 30px rgba(0,209,255,.9)
+}
+
+.section{
+  padding:110px 8%;
+  text-align:center
+}
+
+.section h2{
+  font-size:38px;
+  margin-bottom:40px
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:30px
+}
+
+.card{
+  background:linear-gradient(160deg,#15151c,#0b0b0d);
+  padding:35px;
+  border-radius:22px;
+  transition:.4s
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.02)
+}
+
+.dark{
+  background:linear-gradient(180deg,#0b0b0d,#050509)
+}
+
+.footer{
+  text-align:center;
+  padding:30px;
+  background:#050509;
+  color:#aaa
+}
+
+/* ANIMAÇÕES */
+
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes slideUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* RESPONSIVO */
+@media(max-width:768px){
+  .nav{
+    display:none;
+    position:absolute;
+    top:70px;
+    right:8%;
+    background:#0e0e11;
+    flex-direction:column;
+    padding:20px;
+    border-radius:15px
+  }
+
+  .nav.active{display:flex}
+  .menu-btn{display:block}
+  .hero h1{font-size:40px}
+}
+
+
+/* LOGO IMAGEM + TEXTO COM EFEITO */
+.logo-container{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.logo-img{
+  height:80px;
+  width:auto;
+  filter: drop-shadow(0 0 24px rgba(0,209,255,1));
+}
+
+.logo-text{
+  font-size:26px;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.glow-text{
+  color:#00d1ff;
+  text-shadow:
+    0 0 6px rgba(0,209,255,.8),
+    0 0 12px rgba(0,209,255,.7),
+    0 0 22px rgba(0,209,255,.6);
+}
+
+.logo-text span{
+  color:#7fe9ff;
+}
+
+/* BOTÕES SOCIAIS */
+.social-buttons{
+  display:flex;
+  gap:12px;
+}
+
+.social-btn{
+  padding:10px 18px;
+  border-radius:25px;
+  font-size:14px;
+  font-weight:600;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.social-btn.whatsapp{
+  background:#25D366;
+  color:#000;
+}
+
+.social-btn.whatsapp:hover{
+  box-shadow:0 0 18px rgba(37,211,102,.9);
+}
+
+.social-btn.instagram{
+  background:linear-gradient(45deg,#833ab4,#fd1d1d,#fcb045);
+  color:#fff;
+}
+
+.social-btn.instagram:hover{
+  box-shadow:0 0 18px rgba(253,29,29,.8);
+}
+
+/* ===== IMAGENS DOS CARDS ===== */
+.card img{
+  width:72px;
+  height:72px;
+  margin-bottom:18px;
+  filter: drop-shadow(0 0 12px rgba(0,209,255,.9));
+}
+
+/* ===== TEXTO DOS CARDS ===== */
+.card h3{
+  color:#00d1ff;
+  margin-bottom:8px;
+}
+
+.card p{
+  color:#cbd5f5;
+  font-size:14px;
+}
+
+/* ===== ANIMAÇÃO DE HOVER MELHORADA ===== */
+.card:hover{
+  transform:translateY(-12px) scale(1.03);
+  box-shadow:0 0 28px rgba(0,209,255,.25);
+}
+
+
+/* Glow azul APENAS no texto Back-end */
+.glow-backend{
+  color:#00d1ff;
+  text-shadow:
+    0 0 6px rgba(0,209,255,.9),
+    0 0 14px rgba(0,209,255,.8),
+    0 0 26px rgba(0,209,255,.7);
+}
+
+
+/* Estado inicial dos cards (antes de aparecer) */
+.card{
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity .8s ease, transform .8s ease;
+}
+
+/* Estado visível */
+.card.show{
+  opacity:1;
+  transform:translateY(0);
+}
+/* Animação em cascata (um card por vez) */
+.card:nth-child(1){
+  transition-delay: 0s;
+}
+
+.card:nth-child(2){
+  transition-delay: 0.15s;
+}
+
+.card:nth-child(3){
+  transition-delay: 0.3s;
+}
+
+.card:nth-child(4){
+  transition-delay: 0.45s;
+}
+
+/* ===== ANIMAÇÃO FINAL DOS CARDS ===== */
+.card{
+  background:linear-gradient(160deg,#15151c,#0b0b0d);
+  padding:35px;
+  border-radius:22px;
+
+  opacity:0;
+  transform:translateY(50px);
+  transition:
+    opacity .8s ease,
+    transform .8s ease,
+    box-shadow .4s ease;
+}
+
+.card.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ===== SOBRE ===== */
+.sobre{
+  max-width:800px;
+  margin:0 auto;
+}
+
+.sobre p{
+  font-size:16px;
+  line-height:1.8;
+  color:#cfd8ff;
+  margin-bottom:16px;
+}
+
+.sobre strong{
+  color:#00d1ff;
+}
+
+.sobre-destaque{
+  margin-top:20px;
+  font-weight:600;
+  color:#00d1ff;
+  text-shadow:0 0 10px rgba(0,209,255,.6);
+}
+
+/* Glow mais forte apenas na seção Manutenções */
+#manutencao .card:hover{
+  box-shadow: 
+    0 0 25px rgba(0,209,255,.4),
+    0 0 45px rgba(0,209,255,.3),
+    0 0 70px rgba(0,209,255,.2);
+}
+ 
+/* 1️⃣ Glow pulsando suave (estado normal) */
+#manutencao .card{
+  animation: glowPulse 4.5s ease-in-out infinite;
+}
+
+/* 2️⃣ Ao passar o mouse: pausa o pulso */
+#manutencao .card:hover{
+  animation-play-state: paused;
+
+  /* Glow MAIS FORTE no hover */
+  box-shadow:
+    0 0 25px rgba(0,209,255,.5),
+    0 0 50px rgba(0,209,255,.35),
+    0 0 80px rgba(0,209,255,.25);
+}
+
+/* 3️⃣ Animação do pulso */
+@keyframes glowPulse{
+  0%{
+    box-shadow: 0 0 12px rgba(0,209,255,.2);
+  }
+  50%{
+    box-shadow:
+      0 0 35px rgba(0,209,255,.45),
+      0 0 65px rgba(0,209,255,.3);
+  }
+  100%{
+    box-shadow: 0 0 12px rgba(0,209,255,.2);
+  }
+}
+
+/* ===== ANIMAÇÃO DO TÍTULO FRONT & BACK-END ===== */
+.hero-title{
+  opacity: 0;
+  transform: translateY(40px);
+  animation: heroTitleIn 1.2s ease-out forwards;
+}
+
+/* Animação principal */
+@keyframes heroTitleIn{
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Delay suave só no Back-end */
+.hero-title .glow-backend{
+  display: inline-block;
+  animation: backendGlowIn 1.6s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes backendGlowIn{
+  0%{
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulsar apenas o texto Back-end */
+.glow-backend{
+  animation: backendPulse 3s ease-in-out infinite;
+}
+
+/* Animação de pulso */
+@keyframes backendPulse{
+  0%{
+    text-shadow:
+      0 0 6px rgba(0,209,255,.6),
+      0 0 12px rgba(0,209,255,.4);
+  }
+  50%{
+    text-shadow:
+      0 0 14px rgba(0,209,255,.9),
+      0 0 28px rgba(0,209,255,.7),
+      0 0 45px rgba(0,209,255,.5);
+  }
+  100%{
+    text-shadow:
+      0 0 6px rgba(0,209,255,.6),
+      0 0 12px rgba(0,209,255,.4);
+  }
+}
+
+/* ===== LOGO TEXTO PERSONALIZADO ===== */
+
+/* Simeao — branco com glow branco */
+.logo-simeao{
+  color:#ffffff;
+  text-shadow:
+    0 0 6px rgba(255,255,255,.6),
+    0 0 14px rgba(255,255,255,.45),
+    0 0 28px rgba(255,255,255,.25);
+}
+
+/* Software — azul com glow azul (igual estava) */
+.logo-software{
+  color:#00d1ff;
+  text-shadow:
+    0 0 6px rgba(0,209,255,.8),
+    0 0 14px rgba(0,209,255,.7),
+    0 0 28px rgba(0,209,255,.6);
+}
+
+.logo-software{
+  animation: softwarePulse 4s ease-in-out infinite;
+}
+
+@keyframes softwarePulse{
+  0%,100%{
+    text-shadow:
+      0 0 6px rgba(0,209,255,.6),
+      0 0 14px rgba(0,209,255,.5);
+  }
+  50%{
+    text-shadow:
+      0 0 16px rgba(0,209,255,.9),
+      0 0 32px rgba(0,209,255,.7),
+      0 0 60px rgba(0,209,255,.4);
+  }
+}
+
+/* Logo reagindo ao scroll */
+.logo-text{
+  transition: transform .4s ease, text-shadow .4s ease;
+}
+
+.logo-scroll{
+  transform: scale(1.06);
+}
+
+/* Intensifica os glows no scroll */
+.logo-scroll .logo-simeao{
+  text-shadow:
+    0 0 10px rgba(255,255,255,.9),
+    0 0 22px rgba(255,255,255,.6),
+    0 0 40px rgba(255,255,255,.35);
+}
+
+.logo-scroll .logo-software{
+  text-shadow:
+    0 0 12px rgba(0,209,255,.95),
+    0 0 26px rgba(0,209,255,.75),
+    0 0 50px rgba(0,209,255,.5);
+}
+.logo-simeao{
+  color:#ffffff;
+  text-shadow:
+    0 0 6px rgba(255,255,255,1),
+    0 0 16px rgba(255,255,255,.85),
+    0 0 32px rgba(255,255,255,.6);
+}
+
+.footer{
+  background: linear-gradient(
+    180deg,
+    #050509,
+    #0a1f33
+  );
+  color:#bfc9ff;
+}
+
+/* Fundo com luz suave no final da página */
+body{
+  background:
+    radial-gradient(
+      circle at bottom center,
+      rgba(0,209,255,.12),
+      rgba(0,0,0,0) 55%
+    ),
+    linear-gradient(
+      180deg,
+      #0a1f33 0%,
+      #050509 50%,
+      #02030a 100%
+    );
+}
+
+/* Fundo equilibrado com o rodapé */
+body{
+  background:
+    radial-gradient(
+      circle at bottom center,
+      rgba(0,209,255,.08),
+      rgba(0,0,0,0) 50%
+    ),
+    linear-gradient(
+      180deg,
+      #0a1f33 0%,
+      #050509 60%,
+      #050509 100%
+    );
+}
+
+.footer{
+  background:#050509;
+  border-top: 1px solid rgba(255,255,255,.05);
+}
+
+/* Fundo contínuo e elegante até o rodapé */
+body{
+  background: linear-gradient(
+    180deg,
+    #0a1f33 0%,
+    #050509 55%,
+    #050509 100%
+  );
+}
+
+/* Fundo escuro com profundidade (sem preto chapado) */
+body{
+  background:
+    linear-gradient(
+      180deg,
+      #0a1f33 0%,
+      #06070d 45%,
+      #050509 100%
+    );
+  position: relative;
+}
+
+
+/* Fundo elegante premium – cinza médio */
+body{
+  background: linear-gradient(
+    180deg,
+    hsl(216, 17%, 6%) 0%,
+    lab(16.42% 1.05 -12.28) 45%,
+    hwb(0 0% 100%) 100%
+  );
+  color:#1a202c;
+}
+.section{
+  background: transparent;
+}
+
+/* ===============================
+   FORÇAR TEXTO BRANCO NAS SEÇÕES
+   =============================== */
+
+/* FRONT-END (título principal) */
+.hero h1{
+  color:#ffffff;
+}
+
+/* Serviços, Como Trabalhamos, Tecnologias */
+#servicos h2,
+#servicos p{
+  color:#ffffff;
+}
+
+/* Se não tiver id nessas seções, o padrão abaixo cobre */
+.section h2{
+  color:#ffffff;
+}
+
+.section p{
+  color:#ffffff;
+}
+
+/* SOBRE, MANUTENÇÃO, FAQ (usam .sobre) */
+.sobre p{
+  color:#ffffff;
+}
+
+/* Contato */
+#contato h2,
+#contato p,
+#contato a{
+  color:#ffffff;
+} 
+
+/* ===== RESET BOTÕES (FINAL LIMPO) ===== */
+
+/* ================= DESKTOP ================= */
+.header-buttons{
+  display: flex;
+  gap: 12px;
+}
+
+.header-buttons a{
+  padding: 10px 20px;
+  border-radius: 999px; /* 🔥 MEIA ESFERA / OVAL */
+  background: #25D366;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+
+/* Instagram desktop */
+.header-buttons a:last-child{
+  background: #E1306C;
+}
+
+/* ================= MOBILE ================= */
+
+/* mobile começa TOTALMENTE escondido */
+.mobile-buttons{
+  display: none;
+}
+
+/* MOBILE ATIVO */
+@media (max-width:768px){
+
+  /* esconde botões do header */
+  .header-buttons{
+    display: none !important;
+  }
+
+  /* BOTÕES MOBILE – UM EM CIMA DO OUTRO */
+  .mobile-buttons{
+    display: flex !important;
+    flex-direction: column !important; /* 🔥 ESSA LINHA É A CHAVE */
+    align-items: center;
+
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    gap: 12px;
+    z-index: 999999;
+  }
+
+  .mobile-buttons a{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+  }
+}
+
+@media (max-width:768px){
+
+  .mobile-buttons{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    gap: 12px;
+    z-index: 99999;
+  }
+
+  .mobile-buttons a{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden; /* 🔥 ISSO É A CHAVE */
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: none; /* remove cor do botão */
+  }
+
+  .mobile-buttons a img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 🔥 PREENCHE TODO O BOTÃO */
+  }
+}
+/* Espaço extra real para não cobrir conteúdo no mobile */
+@media (max-width:768px){
+  body::after{
+    content: "";
+    display: block;
+    height: 220px; /* espaço maior que os botões */
+  }
+}
+@media (max-width:768px){
+  .sobre{
+    position: relative;
+    z-index: 1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
