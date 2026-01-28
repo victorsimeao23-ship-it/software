@@ -741,6 +741,20 @@ body{
     line-height: 1.7;
   }
 }
+/* Espaço extra real para não cobrir conteúdo no mobile */
+@media (max-width:768px){
+  body::after{
+    content: "";
+    display: block;
+    height: 220px; /* espaço maior que os botões */
+  }
+}
+@media (max-width:768px){
+  .sobre{
+    position: relative;
+    z-index: 1;
+  }
+}
 
 
 
