@@ -724,6 +724,23 @@ body{
     object-fit: cover; /* 🔥 PREENCHE TODO O BOTÃO */
   }
 }
+@media (max-width:768px){
+
+  .section{
+    padding-top: 140px;
+    padding-bottom: 160px;
+  }
+
+  .sobre{
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .sobre p{
+    font-size: 15px;
+    line-height: 1.7;
+  }
+}
 
 
 
